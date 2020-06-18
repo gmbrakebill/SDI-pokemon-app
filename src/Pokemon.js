@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Flippy, { FrontSide, BackSide } from 'react-flippy';
 import Image from './Image';
 
@@ -36,28 +36,35 @@ class Pokemon extends React.Component {
       .map((ability) => ability.ability.name)
       .join(', ');
     return (
-      <Fragment>
+      <div className="pokemon-card">
         <Flippy
           flipOnHover={false}
           flipOnClick={true}
           flipDirection="horizontal"
           ref={(r) => (this.flippy = r)}
-          style={{ width: '250px', height: '300px' }}
+          style={{
+            width: '250px',
+            height: '300px',
+            left: '43%',
+            position: 'relative',
+            padding: '10px',
+            // margin-bottom : '20px',
+          }}
         >
-          <FrontSide style={{ backgroundColor: '#41669d' }}>
+          <FrontSide style={{ backgroundColor: '#2F4F4F' }}>
             <Image
               url={this.state.pokedata.sprites.front_default}
               alt={this.state.pokedata.name}
             />
           </FrontSide>
-          <BackSide style={{ backgroundColor: '#41669d' }}>
+          <BackSide style={{ backgroundColor: '#2F4F4F', color: '#FFFFFF' }}>
             <h3>{this.state.pokedata.name}</h3> <br />
             <h5>Pokemon ID: {this.state.pokedata.id}</h5>
             <h5> Abilities: {abilities} </h5>
             <h5>Type(s): {types} </h5>
           </BackSide>
         </Flippy>
-      </Fragment>
+      </div>
     );
   }
 }

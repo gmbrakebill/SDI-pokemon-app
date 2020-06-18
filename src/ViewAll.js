@@ -1,26 +1,39 @@
 import React from 'react';
+import Pokemon from './Pokemon';
 
 class ViewAll extends React.Component {
-  state = {
-    loading: true,
-    pokemon: null,
-    name: ' ',
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true,
+      pokedata: {
+        name: '',
+        types: [],
+        abilities: [],
+        sprites: {},
+      },
+      url: 'https://pokeapi.co/api/v2/pokemon',
+    };
+  }
 
   async componentDidMount() {
-    const url = 'https://pokeapi.co/api/v2/pokemon/';
-    const response = await fetch(url);
+    const response = await fetch(this.state.url);
     const data = await response.json();
-    this.setState({ pokemon: data.results[0], loading: false });
+    this.setState({ pokedata: data.results, loading: false });
   }
   render() {
+    let pokemonList = this.state.pokedata;
+    console.log(pokemonList);
     return (
       <div>
-        {this.state.loading || !this.state.pokemon ? (
+        {this.state.loading || !this.state.pokedata ? (
           <div>loading...</div>
         ) : (
-          <div>{this.state.pokemon.name}</div>
+          <div>
+            <Pokemon url={pokemonList[0].url} />
+          </div>
         )}
+        <button onClick={this.props.Return}>Return</button>
       </div>
     );
   }

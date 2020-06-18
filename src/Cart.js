@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import Image from './Image';
+// import Image from './Image';
+import Pokemon from './Pokemon';
 
 function Cart(props) {
   const [index, setIndex] = useState(0);
-  console.log('Num pokemon', props.collection.length);
-  console.log('index', index);
   return (
     <div className="App">
       <h1> Your Pokemon Cart:</h1>
-      <Image
+      {/* <Image
         url={props.collection[index].sprites.front_default}
         alt={props.collection[index].name}
       />
-      <h4>{props.collection[index].name}</h4>
+      <h4>{props.collection[index].name}</h4> */}
+      <Pokemon url={props.collection[index].url} />
       <button
         id="prev"
         onClick={() => {

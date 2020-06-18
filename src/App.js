@@ -23,6 +23,7 @@ class App extends React.Component {
       collection: [],
       cartindex: 0,
       showHideCollection: true,
+      ShowHideAll: false,
     };
   }
 
@@ -42,8 +43,20 @@ class App extends React.Component {
     this.setState({ showHideCollection: false });
   }
 
+  showAll() {
+    this.setState({ ShowHideAll: true });
+    this.setState({ showHideCollection: false });
+  }
+
+  hideAll() {
+    this.setState({ ShowHideAll: false });
+    this.setState({ showHideCollection: true });
+  }
+
   AddtoCollection = () => {
     if (this.state.collection.indexOf(this.state.pokedata[0]) === -1) {
+      let pokeObj = this.state.pokedata[0];
+      pokeObj.url = this.state.url;
       let newCollection = this.state.collection.concat(this.state.pokedata[0]);
       this.setState({ collection: newCollection });
       alert('Pokemon added to collection!');
@@ -76,7 +89,7 @@ class App extends React.Component {
   }
 
   render() {
-    if (this.state.showHideCollection) {
+    if (this.state.showHideCollection && this.state.ShowHideAll === false) {
       return (
         <div className="App">
           <Pokemon pokemon url={this.state.url} />
@@ -98,20 +111,26 @@ class App extends React.Component {
             >
               View Collection
             </button>
-            <button onClick={() => <ViewAll />} className="ViewAllBtn">
+            <button onClick={() => this.showAll()} className="ViewAllBtn">
               View All
             </button>
           </div>
         </div>
       );
-    } else {
+    } else if (
+      this.state.showHideCollection === false &&
+      this.state.ShowHideAll === false
+    ) {
       return (
         <Cart
           collection={this.state.collection}
           Return={this.ShowComponent.bind(this)}
         />
       );
+    } else {
+      return <ViewAll Return={this.hideAll.bind(this)} />;
     }
   }
 }
+
 export default App;
