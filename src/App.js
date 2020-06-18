@@ -3,6 +3,8 @@ import './App.css';
 import Image from './Image';
 import QueryButton from './queryButton';
 import Cart from './Cart';
+import ViewAll from './ViewAll';
+import Pokemon from './Pokemon';
 
 // const initialState = { cartindex: 0 };
 
@@ -57,7 +59,7 @@ class App extends React.Component {
     if (this.state.collection.indexOf(this.state.pokedata[0]) === -1) {
       let newCollection = this.state.collection.concat(this.state.pokedata[0]);
       this.setState({ collection: newCollection });
-      console.log(newCollection);
+      alert('Pokemon added to collection!');
     } else {
       alert('Pokemon already collected!');
     }
@@ -96,21 +98,37 @@ class App extends React.Component {
     if (this.state.showHideCollection) {
       return (
         <div className="App">
-          <h1>{this.state.pokedata[0].name}</h1>
+          {/* <h1>{this.state.pokedata[0].name}</h1>
           <Image
             url={this.state.pokedata[0].sprites.front_default}
             alt={this.state.pokedata[0].name}
           />
           <h4>Pokemon ID: {this.state.pokedata[0].id}</h4>
           <p> Abilities: {abilities} </p>
-          <h3>Type(s): {types} </h3>
+          <h3>Type(s): {types} </h3> */}
+          <Pokemon
+            pokemon
+            url={'https://pokeapi.co/api/v2/pokemon/pikachu'}
+            pokemon={this.state.pokedata[0]}
+          />
           <QueryButton
             onSubmit={this.handleSubmit.bind(this)}
             onChange={this.handleChange.bind(this)}
           />
           <br />
-          <button onClick={() => this.AddtoCollection()}>Collect!</button>
-          <button onClick={() => this.HideComponent()}>View Collection</button>
+          <button
+            onClick={() => this.AddtoCollection()}
+            className="CollectPokeBtn"
+          >
+            Collect!
+          </button>
+          <button
+            onClick={() => this.HideComponent()}
+            className="ViewCollection"
+          >
+            View Collection
+          </button>
+          <button onClick={() => <ViewAll />}>View All</button>
         </div>
       );
     } else {
@@ -119,29 +137,6 @@ class App extends React.Component {
           collection={this.state.collection}
           Return={this.ShowComponent.bind(this)}
         />
-        // <div className="App">
-        //   <h1> Your Pokemon Cart:</h1>
-        //   <Image
-        //     url={
-        //       this.state.collection[this.state.cartindex].sprites.front_default
-        //     }
-        //     alt={this.state.collection[this.state.cartindex].name}
-        //   />
-        //   <h4>{this.state.collection[this.state.cartindex].name}</h4>
-        //   <button
-        //     onClick={() => this.setState({ cartindex: this.state.cartindex - 1 })}
-        //   >
-        //     Previous
-        //   </button>
-        //   <button
-        //     onClick={() => this.setState({ cartindex: this.state.cartindex + 1 })}
-        //   >
-        //     Next
-        //   </button>{' '}
-        //   <br />
-        //   <br />
-        //   <button onClick={() => this.ShowComponent()}>Return</button>
-        // </div>
       );
     }
   }

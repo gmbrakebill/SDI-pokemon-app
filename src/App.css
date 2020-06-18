@@ -43,18 +43,75 @@ body {
 }
 
 .picture {
-  height: 200px;
+  height: 75%;
   width: auto;
 }
 input[type='text'] {
-  padding: 0;
+  padding: 5px 5px;
   height: 25px;
   position: relative;
-  left: 0;
+  left: 0.6rem;
+  width: 13rem;
   outline: none;
-  border: 1px solid #cdcdcd;
-  border-color: rgba(0, 0, 0, 0.15);
-  background-color: white;
-  font-size: 1.2rem;
+  border: 0.1rem solid #cdcdcd;
+  border-color: rgba(0, 0, 0, 0.3);
+  background-color: darkslategray;
+  font-size: 1rem;
   letter-spacing: 0.1rem;
+  border-radius: 10rem;
+  transition: background-color 0.3s;
+  color: white;
+}
+input[type='text']:focus {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.search-pokemon-button {
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 1rem;
+  position: relative;
+  right: 25px;
+  cursor: pointer;
+}
+.pokeform {
+  position: relative;
+}
+::placeholder {
+  color: white;
+}
+.CollectPokeBtn {
+  border: none;
+  width: 8rem;
+  margin-right: 1rem;
+  padding: 0.5rem 0.5rem;
+  font-size: 0.8rem;
+  color: white;
+  letter-spacing: 0.1rem;
+  border-radius: 10rem;
+  outline: none;
+  cursor: pointer;
+  background: linear-gradient(to right, darkslategray, goldenrod);
+  box-shadow: 5px 10px;
+}
+.CollectPokeBtn:hover {
+  background: linear-gradient(to left, darkslategray, goldenrod);
+}
+.CollectPokeBtn:active {
+  transform: translateY(0.2rem);
+}
+
+/* @keyframes anim {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+.Flippy {
+  animation: anim 10s;
+} */
+.ViewCollection {
 }

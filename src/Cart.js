@@ -1,30 +1,10 @@
 import React, { useReducer, useState } from 'react';
 import Image from './Image';
 
-const initialState = { index: 0 };
-
-function reducer(state, action) {
-  if (state.index === 0 && action.type === 'decrement') {
-    return { index: state.index };
-  }
-  switch (action.type) {
-    case 'increment':
-      return { index: state.index + 1 };
-    case 'decrement':
-      return { index: state.index - 1 };
-    default:
-      throw new Error();
-  }
-}
-
 function Cart(props) {
-  // const [state, dispatch] = useReducer(reducer, initialState);
   const [index, setIndex] = useState(0);
   console.log('Num pokemon', props.collection.length);
   console.log('index', index);
-  // if (state.index === props.collection.length) {
-  //   dispatch({ type: 'decrement' });
-  // }
   return (
     <div className="App">
       <h1> Your Pokemon Cart:</h1>
