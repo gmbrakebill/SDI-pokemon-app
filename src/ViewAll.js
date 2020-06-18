@@ -4,6 +4,7 @@ class ViewAll extends React.Component {
   state = {
     loading: true,
     pokemon: null,
+    name: ' ',
   };
 
   async componentDidMount() {

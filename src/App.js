@@ -1,21 +1,9 @@
 import React from 'react';
 import './App.css';
-import Image from './Image';
 import QueryButton from './queryButton';
 import Cart from './Cart';
 import ViewAll from './ViewAll';
 import Pokemon from './Pokemon';
-
-// const initialState = { cartindex: 0 };
-
-// function reducer(state, action) {
-//   switch (action.type) {
-//     case 'increment':
-//       return { cartindex: state.cartindex + 1 };
-//     case 'decrement':
-//       return { cartindex: state.cartindex - 1 };
-//   }
-// }
 
 class App extends React.Component {
   constructor(props) {
@@ -43,7 +31,6 @@ class App extends React.Component {
       .then((response) => response.json())
       .then((data) => {
         this.setState({ pokedata: [data] });
-        console.log(this.state.pokedata);
       });
   };
 
@@ -89,46 +76,32 @@ class App extends React.Component {
   }
 
   render() {
-    let types = this.state.pokedata[0].types
-      .map((kind) => kind.type.name)
-      .join(', ');
-    let abilities = this.state.pokedata[0].abilities
-      .map((ability) => ability.ability.name)
-      .join(', ');
     if (this.state.showHideCollection) {
       return (
         <div className="App">
-          {/* <h1>{this.state.pokedata[0].name}</h1>
-          <Image
-            url={this.state.pokedata[0].sprites.front_default}
-            alt={this.state.pokedata[0].name}
-          />
-          <h4>Pokemon ID: {this.state.pokedata[0].id}</h4>
-          <p> Abilities: {abilities} </p>
-          <h3>Type(s): {types} </h3> */}
-          <Pokemon
-            pokemon
-            url={'https://pokeapi.co/api/v2/pokemon/pikachu'}
-            pokemon={this.state.pokedata[0]}
-          />
+          <Pokemon pokemon url={this.state.url} />
           <QueryButton
             onSubmit={this.handleSubmit.bind(this)}
             onChange={this.handleChange.bind(this)}
           />
           <br />
-          <button
-            onClick={() => this.AddtoCollection()}
-            className="CollectPokeBtn"
-          >
-            Collect!
-          </button>
-          <button
-            onClick={() => this.HideComponent()}
-            className="ViewCollection"
-          >
-            View Collection
-          </button>
-          <button onClick={() => <ViewAll />}>View All</button>
+          <div ClassName="Buttons">
+            <button
+              onClick={() => this.AddtoCollection()}
+              className="CollectPokeBtn"
+            >
+              Collect!
+            </button>
+            <button
+              onClick={() => this.HideComponent()}
+              className="ViewCollection"
+            >
+              View Collection
+            </button>
+            <button onClick={() => <ViewAll />} className="ViewAllBtn">
+              View All
+            </button>
+          </div>
         </div>
       );
     } else {

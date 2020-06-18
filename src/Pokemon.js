@@ -6,39 +6,37 @@ class Pokemon extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pokedata: [props.pokemon],
-      url: props.url,
+      pokedata: {
+        name: '',
+        types: [],
+        abilities: [],
+        sprites: {},
+      },
+      url: this.props.url,
     };
   }
 
-  fetchPokemon = async (props) => {
-    fetch(this.state.url)
-      .then((response) => response.json())
-      .then((data) => {
-        this.setState({ pokedata: [data] });
-      });
-  };
-
-  componentDidMount() {
-    console.log('DidMount reached');
-    this.fetchPokemon();
+  async componentDidMount() {
+    const response = await fetch(this.props.url);
+    const json = await response.json();
+    this.setState({ pokedata: json });
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.url !== prevState.url) {
-      this.fetchPokemon();
-    }
+  async componentDidUpdate(prevProps, prevState) {
+    const response = await fetch(this.props.url);
+    const json = await response.json();
+    this.setState({ pokedata: json });
   }
 
   render() {
-    let types = this.state.pokedata[0].types
+    let types = this.state.pokedata.types
       .map((kind) => kind.type.name)
       .join(', ');
-    let abilities = this.state.pokedata[0].abilities
+    let abilities = this.state.pokedata.abilities
       .map((ability) => ability.ability.name)
       .join(', ');
     return (
-      <Fragment className="Flippy">
+      <Fragment>
         <Flippy
           flipOnHover={false}
           flipOnClick={true}
@@ -48,13 +46,13 @@ class Pokemon extends React.Component {
         >
           <FrontSide style={{ backgroundColor: '#41669d' }}>
             <Image
-              url={this.state.pokedata[0].sprites.front_default}
-              alt={this.state.pokedata[0].name}
+              url={this.state.pokedata.sprites.front_default}
+              alt={this.state.pokedata.name}
             />
           </FrontSide>
           <BackSide style={{ backgroundColor: '#41669d' }}>
-            <h3>{this.state.pokedata[0].name}</h3> <br />
-            <h5>Pokemon ID: {this.state.pokedata[0].id}</h5>
+            <h3>{this.state.pokedata.name}</h3> <br />
+            <h5>Pokemon ID: {this.state.pokedata.id}</h5>
             <h5> Abilities: {abilities} </h5>
             <h5>Type(s): {types} </h5>
           </BackSide>

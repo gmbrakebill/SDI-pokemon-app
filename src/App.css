@@ -81,25 +81,76 @@ input[type='text']:focus {
 ::placeholder {
   color: white;
 }
+.Buttons {
+  position: relative;
+  background-color: yellow;
+}
 .CollectPokeBtn {
+  background-color: darkslategray;
   border: none;
   width: 8rem;
   margin-right: 1rem;
   padding: 0.5rem 0.5rem;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: white;
+  font-weight: bolder;
   letter-spacing: 0.1rem;
   border-radius: 10rem;
   outline: none;
   cursor: pointer;
-  background: linear-gradient(to right, darkslategray, goldenrod);
-  box-shadow: 5px 10px;
+  box-shadow: 3px 5px 10px black;
+  transition: background-color 0.3s;
 }
 .CollectPokeBtn:hover {
-  background: linear-gradient(to left, darkslategray, goldenrod);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 .CollectPokeBtn:active {
-  transform: translateY(0.2rem);
+  transform: translateY(0.1rem);
+}
+.ViewCollection {
+  background-color: darkslategray;
+  border: none;
+  width: 10rem;
+  margin-right: 1rem;
+  padding: 0.5rem 0.5rem;
+  font-size: 0.9rem;
+  color: white;
+  font-weight: bolder;
+  letter-spacing: 0.1rem;
+  border-radius: 10rem;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 3px 5px 10px black;
+  transition: background-color 0.3s;
+}
+.ViewCollection:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.ViewCollection:active {
+  transform: translateY(0.1rem);
+}
+
+.ViewAllBtn {
+  background-color: darkslategray;
+  border: none;
+  width: 10rem;
+  margin-right: 1rem;
+  padding: 0.5rem 0.5rem;
+  font-size: 0.9rem;
+  color: white;
+  font-weight: bolder;
+  letter-spacing: 0.1rem;
+  border-radius: 10rem;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 3px 5px 10px black;
+  transition: background-color 0.3s;
+}
+.ViewAllBtn:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.ViewAllBtn:active {
+  transform: translateY(0.1rem);
 }
 
 /* @keyframes anim {
@@ -113,5 +164,5 @@ input[type='text']:focus {
 .Flippy {
   animation: anim 10s;
 } */
-.ViewCollection {
-}
+/* .ViewCollection {
+} */
