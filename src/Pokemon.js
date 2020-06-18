@@ -45,7 +45,7 @@ class Pokemon extends React.Component {
           style={{
             width: '250px',
             height: '300px',
-            left: '43%',
+            // left: '43%',
             position: 'relative',
             padding: '10px',
             // margin-bottom : '20px',

@@ -30,10 +30,12 @@ class ViewAll extends React.Component {
           <div>loading...</div>
         ) : (
           <div>
-            <Pokemon url={pokemonList[0].url} />
+            <Pokemon url={pokemonList[3].url} />
           </div>
         )}
-        <button onClick={this.props.Return}>Return</button>
+        <button onClick={this.props.Return} className="AllReturn">
+          Return
+        </button>
       </div>
     );
   }

@@ -12,10 +12,9 @@ body {
   /* background-color: darkgray; */
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: center;
   justify-content: space-evenly;
   margin-top: 30px;
-  background-color: orange;
   height: 30rem;
 }
 
@@ -88,18 +87,18 @@ input[type='text']:focus {
   cursor: pointer;
 }
 .pokeform {
-  /* position: relative; */
+  /* position: absolute; */
 }
 ::placeholder {
   color: white;
 }
 .Buttons {
-  /* position: relative; */
   margin-top: 40px;
-  background-color: yellow;
 }
 .CollectPokeBtn {
   background-color: darkslategray;
+  position: relative;
+  left: 1rem;
   border: none;
   width: 8rem;
   margin-right: 1rem;
@@ -122,8 +121,10 @@ input[type='text']:focus {
 }
 .ViewCollection {
   background-color: darkslategray;
+  position: relative;
   border: none;
   width: 10rem;
+  left: 1rem;
   margin-right: 1rem;
   padding: 0.5rem 0.5rem;
   font-size: 0.9rem;
@@ -144,6 +145,8 @@ input[type='text']:focus {
 }
 
 .ViewAllBtn {
+  position: relative;
+  left: 1rem;
   background-color: darkslategray;
   border: none;
   width: 10rem;
@@ -166,9 +169,130 @@ input[type='text']:focus {
   transform: translateY(0.1rem);
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.AllReturn {
+  background-color: darkslategray;
+  position: relative;
+  border: none;
+  width: 10rem;
+  left: 1rem;
+  margin-right: 1rem;
+  padding: 0.5rem 0.5rem;
+  font-size: 0.9rem;
+  color: white;
+  font-weight: bolder;
+  letter-spacing: 0.1rem;
+  border-radius: 10rem;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 3px 5px 10px black;
+  transition: background-color 0.3s;
+}
+.AllReturn:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.AllReturn:active {
+  transform: translateY(0.1rem);
+}
+
 .poke-card-text {
   color: white;
 }
+
+.prev {
+  background-color: darkslategray;
+  /* position: relative; */
+  border: none;
+  width: 10rem;
+  left: 1rem;
+  margin-right: 1rem;
+  padding: 0.5rem 0.5rem;
+  font-size: 0.9rem;
+  color: white;
+  font-weight: bolder;
+  letter-spacing: 0.1rem;
+  border-radius: 10rem;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 3px 5px 10px black;
+  transition: background-color 0.3s;
+}
+.prev:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.prev:active {
+  transform: translateY(0.1rem);
+}
+
+.navbtn {
+}
+
+.next {
+  background-color: darkslategray;
+  /* position: relative; */
+  border: none;
+  width: 10rem;
+  left: 1rem;
+  margin-right: 1rem;
+  padding: 0.5rem 0.5rem;
+  font-size: 0.9rem;
+  color: white;
+  font-weight: bolder;
+  letter-spacing: 0.1rem;
+  border-radius: 10rem;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 3px 5px 10px black;
+  transition: background-color 0.3s;
+}
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.next:active {
+  transform: translateY(0.1rem);
+}
+
+.return {
+  background-color: darkslategray;
+  /* position: relative; */
+  border: none;
+  width: 10rem;
+  left: 1rem;
+  margin-right: 1rem;
+  padding: 0.5rem 0.5rem;
+  font-size: 0.9rem;
+  color: white;
+  font-weight: bolder;
+  letter-spacing: 0.1rem;
+  border-radius: 10rem;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 3px 5px 10px black;
+  transition: background-color 0.3s;
+}
+.prev:return {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.prev:return {
+  transform: translateY(0.1rem);
+}
+.Cart {
+  text-align: center;
+  /* background-color: darkgray; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 30px;
+  height: 35rem;
+}
+
 /* @keyframes anim {
   0% {
     opacity: 0%;
