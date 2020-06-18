@@ -1,5 +1,10 @@
+body {
+  background-color: darkgray;
+}
+
 .App {
   text-align: center;
+  background-color: darkgray;
 }
 
 .App-logo {
@@ -40,4 +45,16 @@
 .picture {
   height: 200px;
   width: auto;
+}
+input[type='text'] {
+  padding: 0;
+  height: 25px;
+  position: relative;
+  left: 0;
+  outline: none;
+  border: 1px solid #cdcdcd;
+  border-color: rgba(0, 0, 0, 0.15);
+  background-color: white;
+  font-size: 1.2rem;
+  letter-spacing: 0.1rem;
 }
