@@ -6,7 +6,7 @@ function Cart(props) {
   const [index, setIndex] = useState(0);
   return (
     <div className="Cart">
-      <h1> Your Pokemon Cart:</h1>
+      <h1> Your Pokemon Collection:</h1>
       {/* <Image
         url={props.collection[index].sprites.front_default}
         alt={props.collection[index].name}
